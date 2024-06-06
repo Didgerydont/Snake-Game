@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 
 public class GamePlay extends JPanel implements KeyListener, ActionListener {
@@ -34,8 +35,18 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private int moves = 0;
     private int score = 0;
 
-    private ImageIcon titleImage;
+    // Mouse parameters
+    private int[] mousePosX = { 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600, 625, 650, 675, 700, 725, 750, 775, 800, 825, 850};
+    private int[] mousePosY = { 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600, 625};
 
+
+
+    private ImageIcon mouseImage;
+
+    private Random random = new Random();
+
+    private int xpos = random.nextInt(mousePosX.length);
+    private int ypos = random.nextInt(mousePosY.length);
     public GamePlay(){
         addKeyListener(this);
         setFocusable(true);
@@ -63,7 +74,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         }
 
         // Display title
-        titleImage = new ImageIcon("src/images/title.png");
+        ImageIcon titleImage = new ImageIcon("src/images/title.png");
         titleImage.paintIcon(this, graphics, 25, 5);
 
         // Display gameplay border
@@ -100,6 +111,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
                 tail = new ImageIcon("src/images/tail.png");
                 tail.paintIcon(this, graphics, snakeXLength[i], snakeYLength[i]);
             }
+
+            mouseImage = new ImageIcon("src/images/mouse.png");
         }
 
 
