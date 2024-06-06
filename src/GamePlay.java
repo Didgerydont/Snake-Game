@@ -107,87 +107,115 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent arg0) {
+        // TODO Auto-generated method stub
+        //Part4
         timer.restart();
         // move right animation
-        if(right){
-            for(int n = lengthOfSnake-1; n >= 0; n--){
+        if(right)
+        {
+            for(int n = lengthOfSnake-1; n>=0;n--)
+            {
                 snakeYLength[n+1] = snakeYLength[n];
             }
-            for(int n = lengthOfSnake; n>=0; n--){
-                if(n==0){
-                    snakeXLength[n] = snakeXLength[n] + 25;
+            for(int n = lengthOfSnake; n>=0; n--)
+            {
+                if (n==0)
+                {
+                    snakeXLength[n] = snakeXLength[n]+25;
                 }
-                else{
+                else
+                {
                     snakeXLength[n] = snakeXLength[n-1];
-
                 }
-                if(snakeXLength[n] > 850){
+                if(snakeXLength[n] >850)
+                {
                     snakeXLength[n] = 25;
                 }
+
             }
             repaint();
         }
-
         // move left animation
-        if(left){
-            for(int n = lengthOfSnake-1; n >= 0; n--){
+        if(left)
+        {
+            for(int n = lengthOfSnake-1; n>=0;n--)
+            {
                 snakeYLength[n+1] = snakeYLength[n];
             }
-            for(int n = lengthOfSnake; n>=0; n--){
-                if(n==0){
-                    snakeXLength[n] = snakeXLength[n] - 25;
+            for(int n = lengthOfSnake; n>=0; n--)
+            {
+                if (n==0)
+                {
+                    snakeXLength[n] = snakeXLength[n]-25;
                 }
-                else{
+                else
+                {
                     snakeXLength[n] = snakeXLength[n-1];
-
                 }
-                if(snakeXLength[n] < 25){
+                if(snakeXLength[n] < 25)
+                {
                     snakeXLength[n] = 850;
                 }
+
             }
             repaint();
-        }
 
+        }
         // move up animation
-        if(up){
-            for(int n = lengthOfSnake-1; n >= 0; n--){
+        if(up)
+        {
+            for(int n = lengthOfSnake-1; n>=0;n--)
+            {
                 snakeXLength[n+1] = snakeXLength[n];
             }
-            for(int n = lengthOfSnake; n>=0; n--){
-                if(n==0){
-                    snakeYLength[n] = snakeYLength[n] - 25;
+            for(int n = lengthOfSnake; n>=0; n--)
+            {
+                if (n==0)
+                {
+                    snakeYLength[n] = snakeYLength[n]-25;
                 }
-                else{
+                else
+                {
                     snakeYLength[n] = snakeYLength[n-1];
-
                 }
-                if(snakeYLength[n] > 75){
+                if(snakeYLength[n] < 75)
+                {
                     snakeYLength[n] = 625;
                 }
+
             }
             repaint();
-        }
 
+        }
         // move down animation
-        if(down){
-            for(int n = lengthOfSnake-1; n >= 0; n--){
+        if(down)
+        {
+            for(int n = lengthOfSnake-1; n>=0;n--)
+            {
                 snakeXLength[n+1] = snakeXLength[n];
             }
-            for(int n = lengthOfSnake; n>=0; n--){
-                if(n==0){
-                    snakeYLength[n] = snakeYLength[n] + 25;
+            for(int n = lengthOfSnake; n>=0; n--)
+            {
+                if (n==0)
+                {
+                    snakeYLength[n] = snakeYLength[n]+25;
                 }
-                else{
+                else
+                {
                     snakeYLength[n] = snakeYLength[n-1];
-
                 }
-                if(snakeYLength[n] > 625){
+                if(snakeYLength[n] > 625)
+                {
                     snakeYLength[n] = 75;
                 }
+
             }
+
             repaint();
         }
+
+
     }
 
     @Override
